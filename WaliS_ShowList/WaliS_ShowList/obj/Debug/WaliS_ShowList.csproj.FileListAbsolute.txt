@@ -1,0 +1,15 @@
+C:\Users\sadiw\OneDrive\ICS\WaliS_AnimuProject\WaliS_AnimuProject\bin\Debug\WaliS_AnimuProject.exe.config
+C:\Users\sadiw\OneDrive\ICS\WaliS_AnimuProject\WaliS_AnimuProject\bin\Debug\WaliS_AnimuProject.exe
+C:\Users\sadiw\OneDrive\ICS\WaliS_AnimuProject\WaliS_AnimuProject\bin\Debug\WaliS_AnimuProject.pdb
+C:\Users\sadiw\OneDrive\ICS\WaliS_AnimuProject\WaliS_AnimuProject\obj\Debug\WaliS_AnimuProject.csprojResolveAssemblyReference.cache
+C:\Users\sadiw\OneDrive\ICS\WaliS_AnimuProject\WaliS_AnimuProject\obj\Debug\WaliS_AnimuProject.exe
+C:\Users\sadiw\OneDrive\ICS\WaliS_AnimuProject\WaliS_AnimuProject\obj\Debug\WaliS_AnimuProject.pdb
+E:\OneDrive\ICS\WaliS_ShowList\WaliS_AnimuProject\bin\Debug\WaliS_AnimuProject.exe.config
+E:\OneDrive\ICS\WaliS_ShowList\WaliS_AnimuProject\obj\Debug\WaliS_AnimuProject.exe
+E:\OneDrive\ICS\WaliS_ShowList\WaliS_AnimuProject\obj\Debug\WaliS_AnimuProject.pdb
+E:\OneDrive\ICS\WaliS_ShowList\WaliS_ShowList\bin\Debug\WaliS_AnimuProject.exe.config
+E:\OneDrive\ICS\WaliS_ShowList\WaliS_ShowList\bin\Debug\WaliS_AnimuProject.exe
+E:\OneDrive\ICS\WaliS_ShowList\WaliS_ShowList\bin\Debug\WaliS_AnimuProject.pdb
+E:\OneDrive\ICS\WaliS_ShowList\WaliS_ShowList\obj\Debug\WaliS_ShowList.csprojResolveAssemblyReference.cache
+E:\OneDrive\ICS\WaliS_ShowList\WaliS_ShowList\obj\Debug\WaliS_AnimuProject.exe
+E:\OneDrive\ICS\WaliS_ShowList\WaliS_ShowList\obj\Debug\WaliS_AnimuProject.pdb
