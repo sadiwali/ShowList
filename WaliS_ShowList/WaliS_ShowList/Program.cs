@@ -132,11 +132,11 @@ namespace WaliS_ShowList
                 Console.WriteLine("\nError! Cannot locate the show list! Please ensure name is: '{0}' A file will be created for you, just in case",fileName);
                 Console.ReadKey();
                 File.CreateText(fileName);
-                Console.WriteLine("Created '{0}'. Press any key to continue...", fileName);
+                Console.WriteLine("Created '{0}'. Press any key to exit...", fileName);
                 
                 Console.ReadKey();
                 // file created, retry
-                readFile();
+                Environment.Exit(0);
             }
 
             work();
