@@ -195,7 +195,7 @@ namespace WaliS_ShowList
             Console.ForegroundColor = ConsoleColor.Black; Console.BackgroundColor = ConsoleColor.Cyan;
             Console.Write("Sadi");
             Console.ForegroundColor = ConsoleColor.White; Console.BackgroundColor = ConsoleColor.Black;
-            Console.Write(" www.sadiwali.com/Projects/Programming/show-list.php");
+            Console.Write(" www.sadiwali.com/Projects/Programming/show_list.php");
 
             ConsoleKeyInfo input;
             do
