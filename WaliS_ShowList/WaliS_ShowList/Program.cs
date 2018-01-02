@@ -1,7 +1,7 @@
 ﻿//Programmer: rize
 //Alpha version
 //Start date OCT2-2015
-//Last updated date APR13-2016
+//Last updated date JAN2-2018
 
 //Current goal: greetings based on local time.
 //Current issue:
@@ -26,7 +26,6 @@ namespace WaliS_ShowList
 
         private static string fileName = "shows.txt";
 
-
         //Speech Arrays
         public static string[] sayings = new string[3];
         public static string[] exclem = new string[3];
@@ -45,26 +44,25 @@ namespace WaliS_ShowList
         public static List<string> anList = new List<string>();
 
 
-        static void Main(string[] args)
-        {
-            StartUp();
+        static void Main(string[] args) {
+            startUp();
         }
 
-        static void StartUp()
+        static void startUp()
         {
             Console.Clear();
             Console.SetWindowSize(150, 65);
             Console.WriteLine((char)Char.GetNumericValue('7'));
             Console.BufferHeight = maxBufferHeight;
-            Init();
-            Welcome();
+            init();
+            welcome();
 
             Console.Read();
         }
 
         //Code Internals----------------------------------------------------------------------
         //Used for initialization
-        public static void Init()
+        public static void init()
         {
 
             //storage of greetings
@@ -108,11 +106,11 @@ namespace WaliS_ShowList
             negatives[3] = "horrible";
 
 
-            ReadFile();
+            readFile();
         }
 
         //Read the shows file.
-        public static void ReadFile()
+        public static void readFile()
         {
             //Reset everything
             anList.Clear();
@@ -134,17 +132,18 @@ namespace WaliS_ShowList
                 Console.WriteLine("\nError! Cannot locate the show list! Please ensure name is: '{0}' A file will be created for you, just in case",fileName);
                 Console.ReadKey();
                 File.CreateText(fileName);
-                Console.WriteLine("Created '{0}'. Exiting...", fileName);
+                Console.WriteLine("Created '{0}'. Press any key to continue...", fileName);
                 
                 Console.ReadKey();
-                Environment.Exit(0);
+                // file created, retry
+                readFile();
             }
-            //te();
-            Work();
+
+            work();
         }
 
         //Processess data
-        public static void Work()
+        public static void work()
         {
             //Reset everything:
             entryCount = 0;
@@ -178,7 +177,7 @@ namespace WaliS_ShowList
         }
 
         //Welcomes the user, asks name of show
-        static void Welcome()
+        static void welcome()
         {
             Console.Clear();
             Console.Write("There are currently: ");
@@ -192,11 +191,11 @@ namespace WaliS_ShowList
             Console.Write("(3)\tDisplay Entire Show List\n");
             Console.Write("(4)\tQuit");
 
-            Console.Write("\r\n\r\n\r\n\r\n\r\n<V1.2> Created by ");
+            Console.Write("\r\n\r\n\r\n\r\n\r\n<V1.3> Created by ");
             Console.ForegroundColor = ConsoleColor.Black; Console.BackgroundColor = ConsoleColor.Cyan;
             Console.Write("Sadi");
             Console.ForegroundColor = ConsoleColor.White; Console.BackgroundColor = ConsoleColor.Black;
-            Console.Write(" @steamcommunity.com/id/kratFOZ");
+            Console.Write(" www.sadiwali.com/Projects/Programming/show-list.php");
 
             ConsoleKeyInfo input;
             do
@@ -208,15 +207,15 @@ namespace WaliS_ShowList
 
                     if (input.KeyChar == '1')
                     {
-                        EnterNew();
+                        enterNew();
                     }
                     else if (input.KeyChar == '2')
                     {
-                        FindExisting();
+                        findExisting();
                     }
                     else if (input.KeyChar == '3')
                     {
-                        PrintEntire();
+                        printEntire();
                     }
                     else if (input.KeyChar == '4')
                     {
@@ -225,32 +224,32 @@ namespace WaliS_ShowList
                 }
                 else
                 {
-                    ClearLine();
+                    clearLine();
                 }
             } while (input.KeyChar != '1' || input.KeyChar != '2' || input.KeyChar != '3' || input.KeyChar != '4');
 
         }
 
         //Enter new show
-        public static void EnterNew()
+        public static void enterNew()
         {
             Random rnd = new Random();
             Console.WriteLine("{0}{1} {2} {3}? \t{4}", greetings[rnd.Next(0, greetings.Length)], exclem[rnd.Next(0, exclem.Length)], sayings[rnd.Next(0, sayings.Length)], daynight[rnd.Next(0, daynight.Length)], System.DateTime.Now);
 
-            Colorize(0, entryCount);
+            colorize(0, entryCount);
             
             string nName = Console.ReadLine().Trim();
             Console.ForegroundColor = ConsoleColor.White; Console.BackgroundColor = ConsoleColor.Black;
             if (String.IsNullOrWhiteSpace(nName)||nName.Length<2)
             {
-                Welcome();
+                welcome();
                 return;
             }
 
             Console.Clear();
             entryCount++;
             Console.WriteLine("Your thoughts?");
-            Colorize(1, entryCount);
+            colorize(1, entryCount);
             Console.ForegroundColor = ConsoleColor.Black; Console.BackgroundColor = ConsoleColor.White;
             Console.Write("{0}", nName);
             Console.ForegroundColor = ConsoleColor.White; Console.BackgroundColor = ConsoleColor.Black;
@@ -270,7 +269,7 @@ namespace WaliS_ShowList
                     Console.ReadKey();
                     Console.Clear();
                     Console.WriteLine("Your thoughts?");
-                    Colorize(1, entryCount);
+                    colorize(1, entryCount);
                     Console.ForegroundColor = ConsoleColor.Black; Console.BackgroundColor = ConsoleColor.White;
                     Console.Write("{0}", nName);
                     Console.ForegroundColor = ConsoleColor.White; Console.BackgroundColor = ConsoleColor.Black;
@@ -288,7 +287,7 @@ namespace WaliS_ShowList
             {
                 Console.Clear();
                 Console.WriteLine("A rating out of 10:");
-                Colorize(1, entryCount);
+                colorize(1, entryCount);
                 Console.ForegroundColor = ConsoleColor.Black; Console.BackgroundColor = ConsoleColor.White;
                 Console.Write("{0}", nName);
                 Console.ForegroundColor = ConsoleColor.White; Console.BackgroundColor = ConsoleColor.Black;
@@ -332,20 +331,20 @@ namespace WaliS_ShowList
 
             }
             //Read the file again with new entries
-            ReadFile();
+            readFile();
             //Potential question about the 'return' below.
-            Welcome(); return;
+            welcome(); return;
 
         }
 
         //Find existing show
-        public static void FindExisting()
+        public static void findExisting()
         {
             Console.Write("Enter name:  ");
             string toFind = Console.ReadLine().ToLower();
             if (string.IsNullOrWhiteSpace(toFind))
             {
-                Welcome();
+                welcome();
                 return; 
             }
 
@@ -358,7 +357,7 @@ namespace WaliS_ShowList
                    // Console.WriteLine("[{0:d3} of {1}]   {2}\t{3} {4}/10",
                      //   aName.IndexOf(s) + 1, entryCount - 1, aName[aName.IndexOf(s)], aText[aName.IndexOf(s)], aRating[aName.IndexOf(s)]);
 
-                    Colorize(1, aName.IndexOf(s) + 1);
+                    colorize(1, aName.IndexOf(s) + 1);
                        
                     //splitting list
                     //rating
@@ -413,17 +412,17 @@ namespace WaliS_ShowList
             if (findCount == 0)
             {
                 Console.WriteLine("ERROR! No Results found!");
-                ReturnToMenu();
+                returnToMenu();
             }
             //If found
             else
             {
                 Console.WriteLine("Found! {0} results.", findCount);
-                ReturnToMenu();
+                returnToMenu();
             }
         }
 
-        static void Colorize(int code, int var)
+        static void colorize(int code, int var)
         {
             if (code == 0)
             {
@@ -460,12 +459,11 @@ namespace WaliS_ShowList
         }
 
         //Write the show file
-        public static void PrintEntire()
-        {
+        public static void printEntire() {
 
             for (int i = 0; i < anList.Count; i++)
             {
-                Colorize(1, i+1);
+                colorize(1, i+1);
 
                 //splitting list
                 //rating
@@ -514,10 +512,10 @@ namespace WaliS_ShowList
                 }
                 Console.WriteLine();
             }
-            ReturnToMenu();
+            returnToMenu();
         }
 
-        static void ReturnToMenu()
+        static void returnToMenu()
         {
             Console.WriteLine("Press 'b' to return to menu.");
             ConsoleKeyInfo input;
@@ -527,17 +525,17 @@ namespace WaliS_ShowList
                 switch (input.KeyChar)
                 {
                     case 'b':
-                        Welcome();
+                        welcome();
                         break;
                     default:
-                        ClearLine();
+                        clearLine();
                         break;
                 }
             } while (input.KeyChar != 'b');
 
         }
 
-        static void ClearLine()
+        static void clearLine()
         {
             Console.Write("\r" + new string(' ', Console.WindowWidth) + "\r");
             Console.CursorTop--;
